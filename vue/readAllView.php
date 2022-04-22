@@ -20,6 +20,7 @@
                         <a href="/frontController.php/detail?id=<?=$post['id']?>" class="btn btn-outline-primary mb-4"> detail</a>
                         <a href="" class="btn btn-outline-primary mb-4"> (modifier)</a>
                         <a href="" class="btn btn-outline-primary mb-4"> (supprimer)</a>
+                        <a href="/frontController.php/pdf?id=<?=$post['id']?>" class="btn btn-outline-primary mb-4"> Télécharger au format pdf</a>
                     </td>
                 </tr>
             <?php } ?>
