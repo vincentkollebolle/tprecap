@@ -1,24 +1,31 @@
 <?php
  // afficher via html une page contenant une représentation des différents
  //blogpost. 
+ $title = "Affichage de tout les posts"; 
+
+ ob_start(); 
 ?>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Blog > Lister tout les posts</title>
-</head>
-<body>
-    <ul>
-        <?php foreach($posts as $post) { ?>
-            <li>
-                <?=$post['title']?> 
-                <a href=""> (detail)</a>
-                <a href=""> (modifier)</a>
-                <a href=""> (supprimer)</a>
-            </li>
-        <?php } ?>
-    </ul>
-</body>
-</html>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($posts as $post) { ?>
+                <tr>
+                    <td><?=$post['title']?></td>
+                    <td> 
+                        <a href="" class="btn btn-outline-primary mb-4"> detail</a>
+                        <a href="" class="btn btn-outline-primary mb-4"> (modifier)</a>
+                        <a href="" class="btn btn-outline-primary mb-4"> (supprimer)</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+<?php
+    $content = ob_get_clean();
+
+    include "layout.php";
